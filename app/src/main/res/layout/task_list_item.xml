@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEEEEE"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="#009688"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+                    android:visibility="gone"
+                    android:background="#EEEEEE"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"></LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:id="@+id/taskItemTitle"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="10dp"
+
+                    android:textColor="#FFFFFF" />
+
+
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Description"
+                android:id="@+id/taskItemDescription"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center|top"
+                android:paddingTop="5dp"
+                android:background="#B2DFDB" />
+
+            <com.daimajia.numberprogressbar.NumberProgressBar
+                android:id="@+id/taskItemProgress"
+                android:layout_margin="2dp"
+                style="@style/NumberProgressBar_Relax_Blue"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageButton"
+        android:background="@drawable/arrowsmall"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

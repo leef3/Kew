@@ -3,15 +3,22 @@ package studios.redleef.kew;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 public class ProjectActivity extends Activity {
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,21 +27,17 @@ public class ProjectActivity extends Activity {
         FadingActionBarHelper helper = new FadingActionBarHelper()
                 .actionBarBackground(R.drawable.ab_background)
                 .headerLayout(R.layout.header)
-                .contentLayout(R.layout.project_main)
+                .contentLayout(R.layout.task_list_item)
                 .headerOverlayLayout(R.layout.header_overlay);
         setContentView(helper.createView(this));
         helper.initActionBar(this);
 
-        //setContentView(R.layout.project_main);
+        context = this;
 
-        ListView listView = (ListView) findViewById(android.R.id.list);
-        ArrayList<String> items = new ArrayList<String>();
-        for(int x = 0; x < 40; x++)
-        {
-            items.add("Woor" + x);
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        listView.setAdapter(adapter);
+
+        Intent intent = new Intent(context, ProjectDetailActivity.class);
+        startActivity(intent);
+
     }
 
     @Override
