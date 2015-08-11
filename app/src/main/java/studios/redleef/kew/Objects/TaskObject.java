@@ -1,6 +1,7 @@
 package studios.redleef.kew.Objects;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Fred Lee on 8/9/2015.
@@ -50,7 +51,8 @@ public class TaskObject {
     public int getProgress()
     {
         //Calculated from all the taskList --- No weights for now just make it 1 per subtask
-        return 50;
+        Random rand = new Random();
+        return rand.nextInt(100 - 0);
     }
     public ArrayList<SubTaskObject> getSubTaskList()
     {

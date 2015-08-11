@@ -16,27 +16,57 @@ import android.widget.ListView;
 
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
+import studios.redleef.kew.Helpers.ProjectListAdapter;
+import studios.redleef.kew.Objects.ProjectObject;
+
 public class ProjectActivity extends Activity {
 
     Context context;
+
+    ProjectListAdapter mAdapter;
+
+    ArrayList<ProjectObject> projectList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         FadingActionBarHelper helper = new FadingActionBarHelper()
                 .actionBarBackground(R.drawable.ab_background)
                 .headerLayout(R.layout.header)
-                .contentLayout(R.layout.task_list_item)
+                .contentLayout(R.layout.project_main)
                 .headerOverlayLayout(R.layout.header_overlay);
         setContentView(helper.createView(this));
         helper.initActionBar(this);
 
+
         context = this;
 
+        projectList = new ArrayList<ProjectObject>();
 
+        for(int x = 0; x < 14; x++)
+        {
+            ProjectObject toAdd = new ProjectObject("Test");
+            projectList.add(toAdd);
+        }
+
+        ListView projectListView = (ListView)findViewById(android.R.id.list);
+        mAdapter = new ProjectListAdapter(context, projectList);
+        projectListView.setAdapter(mAdapter);
+
+        projectListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+                Intent intent = new Intent(context, ProjectDetailActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        });
+
+        /*
         Intent intent = new Intent(context, ProjectDetailActivity.class);
         startActivity(intent);
+        */
 
     }
 

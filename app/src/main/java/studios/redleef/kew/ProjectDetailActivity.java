@@ -22,6 +22,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 /**
  * Created by Fred Lee on 8/9/2015.
@@ -43,7 +44,14 @@ public class ProjectDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.project_detail);
+
+        FadingActionBarHelper helper = new FadingActionBarHelper()
+                .actionBarBackground(R.drawable.ab_background)
+                .headerLayout(R.layout.header)
+                .contentLayout(R.layout.project_detail)
+                .headerOverlayLayout(R.layout.header_overlay);
+        setContentView(helper.createView(this));
+        helper.initActionBar(this);
 
         context = this;
 
@@ -53,7 +61,7 @@ public class ProjectDetailActivity extends Activity {
         //Data Populate
         loadData();
 
-        ListView fullList = (ListView)findViewById(R.id.taskListView);
+        ListView fullList = (ListView)findViewById(android.R.id.list);
         mAdapter = new TaskListAdapter(this, taskList);
         fullList.setAdapter(mAdapter);
         fullList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
