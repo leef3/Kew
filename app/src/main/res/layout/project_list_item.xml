@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="225dp"
         android:gravity="bottom"
-        android:background="#FF9100"
         android:clickable="true"
         android:id="@+id/rootLayout"
-        android:focusableInTouchMode="false">
+        android:focusableInTouchMode="false"
+        android:background="#BF000000">
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -31,14 +31,13 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp" >
 
-                <!--
-                <com.github.lzyzsd.circleprogress.ArcProgress
-                    android:background="#69F0AE"
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    custom:arc_progress="55"
-                    custom:arc_bottom_text="PROGRESS"
-                    android:id="@+id/testArc" /> -->
+                    android:layout_gravity="center"
+
+                    android:id="@+id/testArc" />
 
             </LinearLayout>
             <LinearLayout
@@ -62,7 +61,7 @@
                         android:id="@+id/projectTitle"
                         android:textSize="20dp"
                         android:fontFamily="sans-serif"
-                        android:textColor="#69F0AE" />
+                        android:textColor="#0091EA" />
                     <TextView
                         android:text="Number of Tasks"
                         android:layout_width="match_parent"
@@ -70,7 +69,7 @@
                         android:id="@+id/numTasks"
                         android:textSize="14dp"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="#69F0AE" />
+                        android:textColor="#00B8D4" />
                     <TextView
                         android:text="Date Started"
                         android:layout_width="match_parent"
@@ -78,7 +77,7 @@
                         android:id="@+id/dateStarted"
                         android:textSize="14dp"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="#69F0AE" />
+                        android:textColor="#00B8D4" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

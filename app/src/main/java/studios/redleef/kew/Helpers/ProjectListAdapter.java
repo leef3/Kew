@@ -9,8 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.github.lzyzsd.circleprogress.ArcProgress;
+import com.github.lzyzsd.circleprogress.DonutProgress;
 
 import java.util.ArrayList;
 
@@ -56,7 +55,7 @@ public class ProjectListAdapter extends BaseAdapter {
             //Find UI elements for Lat Long and Timestamp
             holder.TitleTextView = (TextView) convertView.findViewById(R.id.projectTitle);
             holder.NumTasksTextView = (TextView) convertView.findViewById(R.id.numTasks);
-            //holder.Progress = (ArcProgress) convertView.findViewById(R.id.testArc);
+            holder.Progress = (DonutProgress) convertView.findViewById(R.id.testArc);
             holder.DateAddedTextView = (TextView) convertView.findViewById(R.id.dateStarted);
             //Used to re-track the ingredient
             holder.TitleTextView.setTag(position);
@@ -75,7 +74,7 @@ public class ProjectListAdapter extends BaseAdapter {
         holder.TitleTextView.setText(item.getTitle());
         holder.NumTasksTextView.setText(String.valueOf(item.getNumTasks()));
         holder.DateAddedTextView.setText(String.valueOf(item.getDateCreated()));
-        //holder.Progress.setProgress(72);
+        holder.Progress.setProgress(72);
 
         holder.RootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +92,7 @@ public class ProjectListAdapter extends BaseAdapter {
         TextView NumTasksTextView;
         TextView DateAddedTextView;
         LinearLayout RootLayout;
-        //ArcProgress Progress;
+        DonutProgress Progress;
     }
 
 }
