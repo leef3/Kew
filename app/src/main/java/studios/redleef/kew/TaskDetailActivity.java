@@ -1,18 +1,47 @@
 package studios.redleef.kew;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import studios.redleef.kew.Helpers.SubTaskListAdapter;
+import studios.redleef.kew.Objects.ProjectObject;
+import studios.redleef.kew.Objects.SubTaskObject;
 import studios.redleef.kew.R;
 
 public class TaskDetailActivity extends Activity {
+
+    SubTaskListAdapter mAdapter;
+
+    Context context;
+
+    ArrayList<ProjectObject> masterProjectList;
+    ArrayList<SubTaskObject> subTaskList;
+
+    ListView subTaskListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_detail);
+
+        subTaskListView = (ListView)findViewById(R.id.subTaskListView);
+        subTaskList = new ArrayList<SubTaskObject>();
+        for(int x = 0; x < 8; x++)
+        {
+            SubTaskObject toAdd = new SubTaskObject("SubTaskTest", 1);
+            subTaskList.add(toAdd);
+        }
+        mAdapter = new SubTaskListAdapter(this, subTaskList);
+
+        subTaskListView.setAdapter(mAdapter);
+
+
     }
 
     @Override

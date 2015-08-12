@@ -21,4 +21,13 @@ public class SubTaskObject {
         completed = toSet;
     }
 
+    public String getTitle()
+    {
+        return content;
+    }
+
+    public boolean getChecked()
+    {
+        return completed;
+    }
 }

@@ -38,7 +38,7 @@ public class ProjectDetailActivity extends Activity {
     public static final String MASTER_SAVE_NAME = "MASTER_SAVE_DATA_PROJECTS";
 
     //List
-    ArrayList<ProjectObject> projectList;
+    ArrayList<ProjectObject> masterProjectList;
     ArrayList<TaskObject> taskList;
 
     @Override
@@ -79,7 +79,7 @@ public class ProjectDetailActivity extends Activity {
     {
 
         //Loading the Projects
-        projectList = new ArrayList<ProjectObject>();
+        masterProjectList = new ArrayList<ProjectObject>();
         SharedPreferences settings = context.getSharedPreferences("pref", 0);
         settings = context.getSharedPreferences("pref", 0);
         String objectData = settings.getString(MASTER_SAVE_NAME, "");
@@ -91,7 +91,7 @@ public class ProjectDetailActivity extends Activity {
             JsonArray jArray = new JsonParser().parse(objectData).getAsJsonArray();
             for (JsonElement e : jArray) {
                 ProjectObject c = gson.fromJson(e, ProjectObject.class);
-                projectList.add(c);
+                masterProjectList.add(c);
             }
         }
 
@@ -106,7 +106,7 @@ public class ProjectDetailActivity extends Activity {
     private void saveData()
     {
         SharedPreferences.Editor settings = context.getSharedPreferences("pref",0).edit();
-        String data = new Gson().toJson(projectList);
+        String data = new Gson().toJson(masterProjectList);
         System.out.println("Data!: " + data);
         settings.putString(MASTER_SAVE_NAME, data);
         settings.commit();
