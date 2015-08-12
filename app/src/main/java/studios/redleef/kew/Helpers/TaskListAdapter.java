@@ -1,10 +1,12 @@
 package studios.redleef.kew.Helpers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
@@ -12,7 +14,9 @@ import com.daimajia.numberprogressbar.NumberProgressBar;
 import java.util.ArrayList;
 
 import studios.redleef.kew.Objects.TaskObject;
+import studios.redleef.kew.ProjectDetailActivity;
 import studios.redleef.kew.R;
+import studios.redleef.kew.TaskDetailActivity;
 
 /**
  * Created by Fred Lee on 8/9/2015.
@@ -56,6 +60,8 @@ public class TaskListAdapter extends BaseAdapter {
             //Used to re-track the ingredient
             holder.TitleTextView.setTag(position);
 
+            holder.RootLayout = (LinearLayout) convertView.findViewById(R.id.taskRootLayout);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -69,12 +75,21 @@ public class TaskListAdapter extends BaseAdapter {
         holder.DescriptionTextView.setText(item.getDescription());
         holder.Progress.setProgress(item.getProgress());
 
+        holder.RootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TaskDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
         return convertView;
     }
 
     private class ViewHolder {
         TextView TitleTextView;
         TextView DescriptionTextView;
+        LinearLayout RootLayout;
         NumberProgressBar Progress;
     }
 
