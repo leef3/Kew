@@ -2,6 +2,7 @@ package studios.redleef.kew;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +24,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
+import com.melnykov.fab.FloatingActionButton;
 
 /**
  * Created by Fred Lee on 8/9/2015.
@@ -100,6 +102,15 @@ public class ProjectDetailActivity extends Activity {
         {
             taskList.add(new TaskObject("Test Task", "Test Task Description, Should be long and explanatory and should take up multiple lines lets try this"));
         }
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabTask);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TaskDetailActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

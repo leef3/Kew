@@ -20,6 +20,7 @@ public class TaskDetailActivity extends Activity {
 
     Context context;
 
+
     ArrayList<ProjectObject> masterProjectList;
     ArrayList<SubTaskObject> subTaskList;
 

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
+import com.melnykov.fab.FloatingActionButton;
 
 import studios.redleef.kew.Helpers.ProjectListAdapter;
 import studios.redleef.kew.Objects.ProjectObject;
@@ -55,18 +56,14 @@ public class ProjectActivity extends Activity {
         mAdapter = new ProjectListAdapter(context, projectList);
         projectListView.setAdapter(mAdapter);
 
-        projectListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabProject);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(context, ProjectDetailActivity.class);
                 startActivity(intent);
-                return true;
             }
         });
-
-        /*
-        Intent intent = new Intent(context, ProjectDetailActivity.class);
-        startActivity(intent);
-        */
 
     }
 

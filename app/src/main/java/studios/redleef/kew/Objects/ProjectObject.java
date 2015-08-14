@@ -1,6 +1,8 @@
 package studios.redleef.kew.Objects;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -29,11 +31,16 @@ public class ProjectObject {
         return dateCreated;
     }
 
+    public String getStringDateCreated()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultDate = new Date(dateCreated);
+        return (sdf.format(resultDate));
+    }
+
     public int getNumTasks()
     {
-        Random rand = new Random();
-        return rand.nextInt(30 - 2);
-        //return taskList.size();
+        return taskList.size();
     }
 
     public String getTitle()
@@ -43,7 +50,25 @@ public class ProjectObject {
 
     public int getProgress()
     {
-        Random rand = new Random();
-        return rand.nextInt(100 - 0);
+        //Calculating the overall progress
+        int numTasks = getNumTasks();
+
+        int totalProgress = 0;
+
+        for(int x = 0; x < numTasks; x++)
+        {
+            //Adds  Ex 50, 61, 72, 10, 0, 1 -- Divs by NumTasks for Avg
+            totalProgress = totalProgress + taskList.get(x).getProgress();
+        }
+
+        if(numTasks > 0)
+        {
+            double avgProgress = (totalProgress / numTasks);
+            return (int)Math.round(avgProgress);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

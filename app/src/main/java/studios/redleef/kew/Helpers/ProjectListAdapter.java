@@ -72,9 +72,9 @@ public class ProjectListAdapter extends BaseAdapter {
 
         //Set the contents of the UI elements
         holder.TitleTextView.setText(item.getTitle());
-        holder.NumTasksTextView.setText(String.valueOf(item.getNumTasks()));
-        holder.DateAddedTextView.setText(String.valueOf(item.getDateCreated()));
-        holder.Progress.setProgress(72);
+        holder.NumTasksTextView.setText("Task Count: " + String.valueOf(item.getNumTasks()));
+        holder.DateAddedTextView.setText("Created: " + item.getStringDateCreated());
+        holder.Progress.setProgress(item.getProgress());
 
         holder.RootLayout.setOnClickListener(new View.OnClickListener() {
             @Override

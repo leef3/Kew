@@ -15,7 +15,7 @@
         android:clickable="true"
         android:id="@+id/rootLayout"
         android:focusableInTouchMode="false"
-        android:background="#BF000000">
+        android:background="@drawable/projbg">
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -28,13 +28,14 @@
                 android:orientation="vertical"
                 android:minWidth="25px"
                 android:minHeight="25px"
+                android:gravity="center"
                 android:layout_width="75dp"
                 android:layout_height="75dp" >
 
 
                 <com.github.lzyzsd.circleprogress.DonutProgress
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
 
                     android:id="@+id/testArc" />
